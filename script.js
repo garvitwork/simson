@@ -156,7 +156,7 @@ $("#orderForm").addEventListener("submit", async e => {
   const body = `NEW ORDER\nName: ${d.name}\nPhone: ${d.phone}\nAddress: ${d.address}\n\nItems:\n${lines.join("\n")}\n\nTotal: ${unknown ? "Price on request" : money(total)}\nNotes: ${d.notes || "-"}`;
 
   btn.disabled = true;
-  const win = window.open(wa(body), "_blank", "noopener");        // opened on click so popups aren't blocked
+  const win = window.open(wa(body), "_blank"); if (win) win.opener = null;        // opened on click so popups aren't blocked
   msg.className = "msg"; msg.textContent = "Sending email…";
   try {
     const r = await fetch("https://formsubmit.co/ajax/" + EMAIL_TO, {
@@ -165,12 +165,13 @@ $("#orderForm").addEventListener("submit", async e => {
         Name: d.name, Phone: d.phone, Address: d.address, Order: lines.join("\n"), Total: unknown ? "Price on request" : money(total), Notes: d.notes || "-" })
     });
     const j = await r.json();
-    if (!r.ok || j.success === "false") throw 0;
+    if (!r.ok || j.success === "false") throw new Error(j.message || r.status);
     msg.className = "msg ok"; msg.textContent = "Order emailed. Please press Send in WhatsApp to complete it.";
     cart = []; save(); renderCart(); f.reset();
-  } catch (_) {
+  } catch (err) {
+    console.warn("Email failed:", err.message);
     msg.className = "msg err";
-    msg.textContent = win ? "Email failed, but please press Send in WhatsApp to place your order." : "Could not send. Please WhatsApp us on 8506067537.";
+    msg.textContent = win ? "Your order is open in WhatsApp. Please tap Send there to complete it." : "WhatsApp was blocked. Please WhatsApp us on 8506067537.";
   } finally { btn.disabled = false; }
 });
 
