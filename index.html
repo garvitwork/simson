@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shri Krishna Plastic | Footwear Manufacturer, Narela, Delhi</title>
+<meta name="description" content="EVA, PU, AIR and Injection footwear manufacturer in Narela, Delhi. Order online via WhatsApp or email.">
+<meta name="theme-color" content="#0f1c36">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shri Krishna Plastic","telephone":"+918506067537","email":"simsonfootwearsdelhi@gmail.com","address":{"@type":"PostalAddress","streetAddress":"A-199, DSIIDC Industrial Area, Narela","addressLocality":"Delhi","postalCode":"110040","addressCountry":"IN"}}</script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#home"><span class="logo">SK</span> Shri Krishna Plastic</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰ Menu</button>
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <a href="#eva">EVA</a>
+    <a href="#pu">PU</a>
+    <a href="#air">AIR</a>
+    <a href="#injection">Injection</a>
+    <a href="#order" class="cartlink">Cart <b id="count">0</b></a>
+  </nav>
+</header>
+
+<main>
+  <!-- HOME -->
+  <section data-view="home">
+    <div class="hero-wrap"><div class="hero">
+      <div>
+        <p class="eyebrow">Footwear manufacturer, Narela, Delhi</p>
+        <h1>Shri Krishna Plastic</h1>
+        <p class="lead">We make footwear and soles in EVA, PU, AIR and Injection. Pick a process, build your order list and send it to us on WhatsApp.</p>
+        <a class="btn" href="#eva">Start ordering</a><a class="btn ghost" href="#order">View cart</a>
+      </div>
+      <div class="grid2" id="homeCards"></div>
+    </div></div>
+    <div class="trust"><span>✔ Direct from factory</span><span>✔ EVA · PU · AIR · Injection</span><span>✔ Bulk &amp; repeat orders</span></div>
+
+    <div class="wrap">
+      <h2>How to order</h2>
+      <ol class="steps">
+        <li><b>1</b><span>Choose a product type from the menu</span></li>
+        <li><b>2</b><span>Set the quantity and tap <em>Add to cart</em></span></li>
+        <li><b>3</b><span>Open your cart, fill your details and tap <em>Send order</em></span></li>
+      </ol>
+    </div>
+
+    <div class="wrap">
+      <h2>Four processes, one factory</h2>
+      <p class="muted">Shri Krishna Plastic is a footwear manufacturing unit in the Narela industrial area of Delhi. Running EVA, PU, AIR and Injection under one roof means you can source different kinds of footwear from a single supplier.</p>
+      <div class="facts">
+        <div><small>Manufacturer of</small><b>EVA, PU, AIR and Injection footwear</b></div>
+        <div><small>Managing Director</small><b>Rohit Mittal</b></div>
+        <div><small>General Manager of Sales</small><b>Goel Ji</b></div>
+        <div><small>Factory</small><b>DSIIDC Industrial Area, Narela, Delhi</b></div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <h2>Price lists &amp; catalogues</h2>
+      <p class="muted">Enter the password provided by us to open the sheet.</p>
+      <div class="sheets" id="sheets"></div>
+    </div>
+
+    <div class="wrap contact">
+      <div>
+        <h2>Talk to us</h2>
+        <p class="muted">Tell us what you want to make and in what quantity. We will get back to you.</p>
+        <dl>
+          <dt>Managing Director</dt><dd>Rohit Mittal</dd>
+          <dt>General Manager of Sales</dt><dd>Goel Ji<br><a href="tel:+918506067537">8506067537</a></dd>
+          <dt>Sales office</dt><dd><a href="tel:+919540453230">9540453230</a></dd>
+          <dt>Email</dt><dd><a href="mailto:simsonfootwearsdelhi@gmail.com">simsonfootwearsdelhi@gmail.com</a></dd>
+          <dt>Address</dt><dd>A-199, DSIIDC Industrial Area,<br>Narela, Delhi - 110040<br>
+            <a href="https://maps.google.com/?q=A-199+DSIIDC+Industrial+Area+Narela+Delhi+110040" target="_blank" rel="noopener">Open in Google Maps</a></dd>
+        </dl>
+      </div>
+      <div class="card">
+        <h3>Chat with us</h3>
+        <p class="muted">Quickest way to reach our sales team.</p>
+        <a class="btn wa" id="waGeneral" target="_blank" rel="noopener">WhatsApp us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT PAGES (filled by script.js) -->
+  <section data-view="eva" class="wrap product"></section>
+  <section data-view="pu" class="wrap product"></section>
+  <section data-view="air" class="wrap product"></section>
+  <section data-view="injection" class="wrap product"></section>
+
+  <!-- ORDER PAGE -->
+  <section data-view="order" class="wrap">
+    <h2>Your cart</h2>
+    <div class="order-grid">
+      <div>
+        <p class="step">Step 1 · Check your items</p>
+        <div id="orderList"></div>
+        <button class="btn ghost" id="clearBtn" type="button">Clear cart</button>
+      </div>
+      <form class="card" id="orderForm" novalidate>
+        <p class="step">Step 2 · Fill your details</p>
+        <h3>Your details</h3>
+        <label>Your name<input name="name" required autocomplete="name" placeholder="e.g. Ramesh Kumar"></label>
+        <label>Phone number<input name="phone" type="tel" inputmode="numeric" maxlength="10" required autocomplete="tel" placeholder="10-digit mobile"></label>
+        <label>Delivery address<textarea name="address" rows="3" required autocomplete="street-address" placeholder="Shop / house no., area, city, PIN code"></textarea></label>
+        <label>Extra notes<textarea name="notes" rows="2" placeholder="Sizes, colours, designs…"></textarea></label>
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off">
+        <p class="msg" id="formMsg" role="status"></p>
+        <p class="muted note">WhatsApp will open with your order ready. Just tap <b>Send</b> there. We will call you to confirm price and delivery.</p>
+        <button class="btn full" type="submit">Send order</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 Shri Krishna Plastic. All rights reserved.</span>
+  <span>A-199, DSIIDC Industrial Area, Narela, Delhi - 110040</span>
+</footer>
+
+<a class="cartbar" id="cartbar" href="#order"><span>🛒 <b id="cb">0</b> pairs in cart</span><span>View cart →</span></a>
+<a class="float-wa" id="waFloat" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+<script src="script.js"></script>
+</body>
+</html>
